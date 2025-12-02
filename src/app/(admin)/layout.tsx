@@ -4,6 +4,7 @@ import { DashboardNavbar } from "@/components/dashboard-navbar";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/lib/auth";
+import { Suspense } from "react";
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession(authOptions);
@@ -18,7 +19,9 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         <DashboardSidebar />
         <div className="flex-1 flex flex-col">
           <DashboardNavbar />
-          <main className="flex-1 p-6 bg-background">{children}</main>
+          <Suspense fallback={<div>Loading...</div>}>
+            <main className="flex-1 p-6 bg-background">{children}</main>
+          </Suspense>
         </div>
       </div>
     </SidebarProvider>

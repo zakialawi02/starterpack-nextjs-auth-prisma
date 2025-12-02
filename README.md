@@ -57,7 +57,7 @@ cp .env.example .env
 4. Configure your environment variables in `.env`:
 
 - `DATABASE_URL`: Your PostgreSQL connection string
-- `AUTH_SECRET`: Secret for NextAuth.js (generate with `openssl rand -base64 32`)
+- `AUTH_SECRET`: Secret for NextAuth.js (generate with `openssl rand -base64 32` or run script `npm run generate:auth`)
 - OAuth provider credentials (at least one):
   - `AUTH_DISCORD_ID` and `AUTH_DISCORD_SECRET`
   - `AUTH_GITHUB_ID` and `AUTH_GITHUB_SECRET`
@@ -72,7 +72,7 @@ npx prisma generate
 6. Set up the database:
 
 ```bash
-npx prisma migrate dev
+npm run db:migrate
 ```
 
 7. Run the development server:
@@ -122,10 +122,6 @@ This starter pack comes preconfigured with three OAuth providers:
 3. Google
 
 To enable a provider, simply add the corresponding environment variables. At least one provider must be configured for authentication to work.
-
-## Protected Routes
-
-Routes under `/dashboard/*` are protected by middleware and require authentication. You can modify the protection rules in [middleware.ts](./middleware.ts).
 
 ## Database Schema
 

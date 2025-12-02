@@ -15,70 +15,47 @@ import {
 } from "@/components/ui/sidebar";
 import {
   BarChart3,
-  Users,
-  ShoppingCart,
-  Settings,
-  FileText,
-  Bell,
-  HelpCircle,
   Home,
-  Package,
-  CreditCard,
+  LayoutDashboard,
+  ReceiptText,
+  Settings,
+  HelpCircle,
+  ArrowLeftRight,
 } from "lucide-react";
 
 const menuItems = [
   {
     title: "Dashboard",
     url: "/dashboard",
-    icon: Home,
+    icon: LayoutDashboard,
   },
   {
-    title: "Analytics",
-    url: "/dashboard/analytics",
+    title: "Invoice",
+    url: "/dashboard/invoice",
+    icon: ReceiptText,
+  },
+  {
+    title: "Transactions",
+    url: "/dashboard/transactions",
+    icon: ArrowLeftRight,
+  },
+  {
+    title: "Report",
+    url: "/dashboard/report",
     icon: BarChart3,
-  },
-  {
-    title: "Users",
-    url: "/dashboard/users",
-    icon: Users,
-  },
-  {
-    title: "Orders",
-    url: "/dashboard/orders",
-    icon: ShoppingCart,
-  },
-  {
-    title: "Products",
-    url: "/dashboard/products",
-    icon: Package,
-  },
-  {
-    title: "Payments",
-    url: "/dashboard/payments",
-    icon: CreditCard,
   },
 ];
 
-const supportItems = [
-  {
-    title: "Reports",
-    url: "/dashboard/reports",
-    icon: FileText,
-  },
-  {
-    title: "Notifications",
-    url: "/dashboard/notifications",
-    icon: Bell,
-  },
-  {
-    title: "Help Center",
-    url: "/dashboard/help",
-    icon: HelpCircle,
-  },
+const referenceItems = [
   {
     title: "Settings",
     url: "/dashboard/settings",
     icon: Settings,
+  },
+  {
+    title: "Help & Support",
+    url: "/dashboard/help-and-support",
+    icon: HelpCircle,
   },
 ];
 
@@ -134,10 +111,10 @@ export function DashboardSidebar() {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel>Support</SidebarGroupLabel>
+          <SidebarGroupLabel>Reference</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {supportItems.map((item) => (
+              {referenceItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild isActive={pathname === item.url} tooltip={item.title}>
                     <Link href={item.url}>
