@@ -48,7 +48,7 @@ export const configuredAuthProviders = providers.map((provider) => ({
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
-  secret: process.env.AUTH_SECRET,
+  secret: process.env.AUTH_SECRET || process.env.NEXTAUTH_SECRET,
   providers,
   pages: {
     signIn: "/auth",

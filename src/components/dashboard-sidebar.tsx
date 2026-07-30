@@ -21,6 +21,7 @@ import {
   Settings,
   HelpCircle,
   ArrowLeftRight,
+  User,
 } from "lucide-react";
 
 const menuItems = [
@@ -47,6 +48,11 @@ const menuItems = [
 ];
 
 const referenceItems = [
+  {
+    title: "My Profile",
+    url: "/dashboard/profile",
+    icon: User,
+  },
   {
     title: "Settings",
     url: "/dashboard/settings",
